@@ -1,0 +1,142 @@
+<ion-header>
+    <ion-navbar color="naranja">
+        <ion-title>
+            <span clear ion-text item-end icon-start color="white" class="item-bold">
+            <ion-icon name='person'></ion-icon>
+           Visualizar pronostico
+            <button ion-button clear item-end (click)="navegarPaginaRanking()">Ranking</button>
+          </span>
+        </ion-title>
+    </ion-navbar>
+    <ion-toolbar no-border-top primary>
+        <ion-segment [(ngModel)]="fase">
+            <ion-segment-button value="fase_1" color="secondary">
+                Fase 1
+            </ion-segment-button>
+            <ion-segment-button value="fase_2" color="white">
+                Fase 2
+            </ion-segment-button>
+            <ion-segment-button value="fase_3" color="white">
+                Fase 3
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="fase">
+        <ion-list *ngSwitchCase="'fase_1'">
+            <ion-card-header>
+                <ion-icon name='person'></ion-icon>
+                <strong> &#160;Fase 1</strong>
+                <br>
+            </ion-card-header>
+
+            <ion-card class="adv-map">
+                <ion-card-content style="color:rebeccapurple; background-color: #d1d1e0">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3>Colombia</ion-col>
+                            <ion-col col-1>
+                                <img src="../../assets/banderas/colombia.png">
+                            </ion-col>
+                            <ion-col col-2>
+                                <ion-input disabled style="color:red; border-style: solid; border-color: black; background-color: #f0f0f5" type="number" value="0"></ion-input>
+                            </ion-col>
+                            <ion-col col-2>
+                                <ion-input disabled style="color:red; border-style: solid; border-color: black; background-color: #f0f0f5" type="number" value="0"></ion-input>
+                            </ion-col>
+                            <ion-col col-1>
+                                <img src="../../assets/banderas/brasil.png">
+                            </ion-col>
+                            <ion-col col-3>Brasil</ion-col>
+                            <ion-col col-12>
+                                <p>Jueves 31 Junio 18:30</p>
+                            </ion-col>
+                            <ion-col col-12>
+                                <button ion-button clear item-end (click)="navegarPaginaVisualizarPronosticoPartido()">Finalizado - Ver Pronostico</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card class="adv-map">
+                <ion-card-content style="color:rebeccapurple; background-color: #d1d1e0">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3>Argentina</ion-col>
+                            <ion-col col-1>
+                                <img src="../../assets/banderas/argentina.png">
+                            </ion-col>
+                            <ion-col col-2>
+                                <ion-input disabled style="color:red; border-style: solid; border-color: black; background-color: #f0f0f5" type="number" value="0"></ion-input>
+                            </ion-col>
+                            <ion-col col-2>
+                                <ion-input disabled style="color:red; border-style: solid; border-color: black; background-color: #f0f0f5" type="number" value="0"></ion-input>
+                            </ion-col>
+                            <ion-col col-1>
+                                <img src="../../assets/banderas/peru.png">
+                            </ion-col>
+                            <ion-col col-3>Peru</ion-col>
+                            <ion-col col-12>
+                                <p>Jueves 31 Junio 18:30</p>
+                            </ion-col>
+                            <ion-col col-12>
+                                <button ion-button clear item-end (click)="navegarPaginaVisualizarPronosticoPartido()">Finalizado - Ver Pronostico</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+
+
+
+
+
+
+
+
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'fase_2'">
+
+
+            <ion-card-header>
+                <ion-icon name='person'></ion-icon>
+                <strong> &#160;Fase 2</strong>
+                <br>
+            </ion-card-header>
+
+            <ion-card class="adv-map">
+
+            </ion-card>
+
+
+
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'fase_3'">
+
+
+            <ion-card-header>
+                <ion-icon name='person'></ion-icon>
+                <strong> &#160;Fase 3</strong>
+                <br>
+            </ion-card-header>
+
+            <ion-card class="adv-map">
+
+            </ion-card>
+
+
+
+
+
+        </ion-list>
+
+
+    </div>
+</ion-content>

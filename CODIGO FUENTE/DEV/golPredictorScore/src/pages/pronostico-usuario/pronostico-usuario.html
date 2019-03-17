@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar color="naranja">
+        <ion-title>
+            <span clear ion-text item-end icon-start color="white" class="item-bold">
+            <ion-icon name='person'></ion-icon>
+            Pronostico Usuario
+          </span>
+        </ion-title>
+    </ion-navbar>
+    <ion-toolbar no-border-top primary>
+        <ion-segment [(ngModel)]="fase">
+            <ion-segment-button value="fase_1" color="secondary">
+                Fase 1
+            </ion-segment-button>
+            <ion-segment-button value="fase_2" color="white">
+                Fase 2
+            </ion-segment-button>
+            <ion-segment-button value="fase_3" color="white">
+                Fase 3
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="fase">
+        <ion-list *ngSwitchCase="'fase_1'">
+
+            <ion-card-header>
+
+                <ion-icon name='person'></ion-icon>
+                <strong> &#160;Fase 1</strong>
+                <br>
+            </ion-card-header>
+
+            <ion-card class="adv-map">
+
+
+            </ion-card>
+            <br>
+            <button ion-button color="aguaMarina" round block (click)="navegarPaginaHome()">
+                Registrar</button>
+            <button ion-button color="aguaMarina" round block (click)="navegarPaginaHome()">
+                    Regresar</button>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'fase_2'">
+
+            <ion-card-header>
+
+                <ion-icon name='person'></ion-icon>
+                <strong> &#160;Fase 2</strong>
+                <br>
+            </ion-card-header>
+
+            <ion-card class="adv-map">
+
+
+            </ion-card>
+
+        </ion-list>
+
+
+    </div>
+</ion-content>
