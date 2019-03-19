@@ -1,0 +1,72 @@
+ionic start golPredictorScore blank
+
+ionic g page login
+
+npm uninstall -g ionic
+
+npm install -g ionic@4.6.0 
+
+- Paginas
+1. registro_usuario
+ionic g page registro_usuario
+
+2. actualizar_contrasena
+ionic g page actualizar_contrasena
+
+3. crear_deafio
+ionic g page crear_deafio
+
+4. invitar_usuarios
+ionic g page invitar_usuarios
+
+5. unirme_desafio
+ionic g page unirme_desafio
+
+6. regsitrar_pronostico
+ionic g page registrar_pronostico
+
+7. rankig_desafio
+ionic g page rankig_desafio
+
+8. pronostico_usuario
+ionic g page pronostico_usuario
+
+ionic g page recordar_contrasenia
+
+
+ionic g page tabs
+
+
+ionic g page modificar_desafio
+
+
+ionic g page visualizar_pronostico
+
+ionic g page visualizar_pronostico_partido
+
+ionic cordova platform remove android
+ionic cordova platform add android
+ionic cordova platform add android@6.4.0
+
+ionic cordova build android
+
+
+App ID
+381289065787845
+
+App Secret
+94187a8bb5ff97bd5ff9daaada242b4cr
+
+url
+https://golpredictorscore.firebaseapp.com/__/auth/handler
+
+ionic g provider usuario
+
+ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="381289065787845" --variable APP_NAME="GolPredictorScore"
+
+id
+com.fingergroupcol.golPredictorScore
+
+
+
+
