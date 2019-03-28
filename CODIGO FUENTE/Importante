@@ -67,6 +67,105 @@ ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="38128906578
 id
 com.fingergroupcol.golPredictorScore
 
+/*************************************
+LOGIN FACEBOOK
+***************************************/
+-- Version Ionic  4.12.0
+npm uninstall -g ionic
+npm install -g ionic@3.9.2
+
+npm uninstall -g cordova ionic
+npm install -g cordova ionic@7.0.1
+
+Paginas
+- Angular Fire
+https://github.com/angular/angularfire2
+- Docs Ionic
+https://ionicframework.com/docs
+
+1. Ejecutar comando
+npm install angularfire2 firebase promise-polyfill --save
+
+2. COnfigurar App.module comom lo indica la seccion Setup @NgModule de angularfire2
+export const firebaseConfig = {
+  apiKey: "AIzaSyDJSlHX-M529gy2EIxM0931omctKHmWXHo",
+    authDomain: "golpredictorscore.firebaseapp.com",
+    databaseURL: "https://golpredictorscore.firebaseio.com",
+    projectId: "golpredictorscore",
+    storageBucket: "golpredictorscore.appspot.com",
+    messagingSenderId: "268389789659"
+};
+
+3. Se toma los datos de login de facebook
+App_id: 381289065787845
+App_secret: 94187a8bb5ff97bd5ff9daaada242b4c
+NombreAplicacion: GolPredictorScore
+
+4. Se crea modifica la pagina login.ts y app.module.ts como se indica en la seccion "Configuring Firebase/Facebook to talk to each other"
+signInWithFacebook() {
+    console.log('Login Facebook');
+    this.afAuth.auth
+      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(res =>{ 
+        console.log(res);
+        this.navegarPaginaHome();
+      });
+
+5. Se genera el provider para el usuario
+ionic g provider usuario
+
+6. Dejar el provider usuario.ts como esta en el ejemplo
+
+7. Modificar pagina Login de la siguiente forma
+- Importar Usuarioprovider y cambiar metodo de login asi
+ signInWithFacebook() {
+    console.log('Login Facebook');
+    this.afAuth.auth
+      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(res =>{ 
+        console.log(res);
+        let user = res.user;
+        this.usuarioProv.cargarUsuario(
+          user.displayName,
+          user.email,
+          user.photoURL,
+          user.uid,
+          'facebook'
+        );
+        this.navegarPaginaHome();
+      });
+  }
+8. Modificar Home.ts de la siguiente manera:
+	user: Credenciales = {};
+
+	constructor(public navCtrl: NavController, public usuarioProv: UsuarioProvider) {
+		console.log( this.usuarioProv.usuario );
+		this.user = this.usuarioProv.usuario;
+	}
+9. Modificar Home.html asi:
+<ion-list>
+        <ion-item text-center>
+            <img [src]="user.imagen">
+        </ion-item>
+        <ion-item> {{ user.nombre }}</ion-item>
+        <ion-item> {{ user.email }}</ion-item>
+        <ion-item> {{ user.uid }}</ion-item>
+        <ion-item> {{ user.provider }}</ion-item>
+    </ion-list>
+/*************************
+IMPORTANTE HASTA ACA FUNCION EN DESKTOP
+***************************/
+10. Cambiar id de la aplicacion en config.xml por com.fingergroupcol.golPredictorScore
+11. Ejecutar comando
+ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="381289065787845" --variable APP_NAME="GolPredictorScore"
+
+
+
+
+
+
+
+
 
 
 
