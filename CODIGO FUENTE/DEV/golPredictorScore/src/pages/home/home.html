@@ -13,6 +13,15 @@
             <ion-col class="top-5" center>
                 BIENVENIDO USUARIO
             </ion-col>
+            <ion-list>
+                <ion-item text-center>
+                    <img [src]="user.imagen">
+                </ion-item>
+                <ion-item> {{ user.nombre }}</ion-item>
+                <ion-item> {{ user.email }}</ion-item>
+                <ion-item> {{ user.uid }}</ion-item>
+                <ion-item> {{ user.provider }}</ion-item>
+            </ion-list>
         </ion-row>
         <ion-row>
             <ion-list>

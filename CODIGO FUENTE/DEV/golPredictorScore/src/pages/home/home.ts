@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {RegistrarPronosticoPage, LoginPage, RankigDesafioPage, ModificarDesafioPage} from "../index.paginas";
+import { UsuarioProvider, Credenciales } from '../../providers/usuario/usuario';
 
 
 @Component({
@@ -9,8 +10,11 @@ import {RegistrarPronosticoPage, LoginPage, RankigDesafioPage, ModificarDesafioP
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  user: Credenciales = {};
 
+  constructor(public navCtrl: NavController, public usuarioProv: UsuarioProvider) {
+    console.log( this.usuarioProv.usuario );
+		this.user = this.usuarioProv.usuario;
   }
 
   navegarPaginaRegistrarPronostico(){

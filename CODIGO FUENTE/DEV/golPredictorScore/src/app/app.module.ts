@@ -7,6 +7,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage, LoginPage, RecordarContraseniaPage, RegistroUsuarioPage, CrearDeafioPage, InvitarUsuariosPage, PronosticoUsuarioPage, RankigDesafioPage, RegistrarPronosticoPage, UnirmeDesafioPage, TabsPage, ModificarDesafioPage, VisualizarPronosticoPage, VisualizarPronosticoPartidoPage } from '../pages/index.paginas';
 
+// FIRE BASE
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { UsuarioProvider } from '../providers/usuario/usuario';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDJSlHX-M529gy2EIxM0931omctKHmWXHo",
+    authDomain: "golpredictorscore.firebaseapp.com",
+    databaseURL: "https://golpredictorscore.firebaseio.com",
+    projectId: "golpredictorscore",
+    storageBucket: "golpredictorscore.appspot.com",
+    messagingSenderId: "268389789659"
+};
 
 @NgModule({
   declarations: [
@@ -16,7 +30,10 @@ import { HomePage, LoginPage, RecordarContraseniaPage, RegistroUsuarioPage, Crea
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +44,8 @@ import { HomePage, LoginPage, RecordarContraseniaPage, RegistroUsuarioPage, Crea
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UsuarioProvider
   ]
 })
 export class AppModule {}

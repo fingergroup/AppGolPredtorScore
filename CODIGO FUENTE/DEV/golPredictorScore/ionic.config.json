@@ -1,5 +1,7 @@
 {
   "name": "golPredictorScore",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
