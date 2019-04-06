@@ -159,6 +159,7 @@ IMPORTANTE HASTA ACA FUNCION EN DESKTOP
 11. Ejecutar comando
 ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="381289065787845" --variable APP_NAME="GolPredictorScore"
 
+LOGIN DESHTOP
 
 
 
